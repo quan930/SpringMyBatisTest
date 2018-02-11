@@ -1,0 +1,31 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-4.2.xsd">
+
+    <bean id="helloWorldImpl1" class="bean.HelloWorldImpl1" />
+    <bean id="helloWorldImpl2" class="bean.HelloWorldImpl2" />
+    <bean id="timeHandler" class="bean.TimeHandler" />
+    <bean id="logHandler" class="bean.LogHandler"/>
+
+    <aop:config>
+        <aop:aspect id="time" ref="timeHandler" order="1">
+            <aop:pointcut id="addAllMethod" expression="execution(* bean.HelloWorld.printHelloWorld(..))" />
+            <aop:before method="sayHello" pointcut-ref="addAllMethod" />
+            <aop:after method="sayHello" pointcut-ref="addAllMethod" />
+        </aop:aspect>
+    </aop:config>
+
+    <aop:config>
+        <aop:aspect id="log" ref="logHandler">
+            <aop:pointcut id="addAll" expression="execution(* bean.HelloWorld.*(..))"/>
+
+            <aop:before method="LogBefore" pointcut-ref="addAll"/>
+            <aop:after method="LogAfter" pointcut-ref="addAll"/>
+        </aop:aspect>
+
+    </aop:config>
+</beans>
