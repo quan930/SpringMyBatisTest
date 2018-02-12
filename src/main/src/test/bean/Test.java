@@ -15,16 +15,16 @@ import java.util.List;
 
 public class Test {
     public static void main(String[] args){
-//        ApplicationContext ac = new ClassPathXmlApplicationContext("Application-bean.xml");
-//
-//        HelloWorld hw1 = (HelloWorld)ac.getBean("helloWorldImpl1");
-//        HelloWorld hw2 = (HelloWorld)ac.getBean("helloWorldImpl2");
-//        hw1.printHelloWorld();
-//        System.out.println();
-//        hw1.doPrint();
-//
-//        System.out.println();
-//        hw2.doPrint();
+        ApplicationContext ac = new ClassPathXmlApplicationContext("Application-bean.xml");
+
+        HelloWorld hw1 = (HelloWorld)ac.getBean("helloWorldImpl1");
+        HelloWorld hw2 = (HelloWorld)ac.getBean("helloWorldImpl2");
+        hw1.printHelloWorld();
+        System.out.println();
+        hw1.doPrint();
+
+        System.out.println();
+        hw2.doPrint();
 
 
         DBAccess dbAccess = new DBAccess();
