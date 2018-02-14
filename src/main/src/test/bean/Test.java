@@ -2,8 +2,6 @@ package test.bean;
 
 import DB.DBAccess;
 import bean.HelloWorld;
-import bean.InterfaceA;
-import bean.InterfaceImpl;
 import bean.UserMessage;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.context.ApplicationContext;
