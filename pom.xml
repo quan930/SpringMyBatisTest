@@ -35,7 +35,7 @@
     </dependency>
 
 
-    <!-- 2:SQL base jars -->
+    <!-- 2:mapper base jars -->
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
