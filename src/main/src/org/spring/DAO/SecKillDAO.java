@@ -13,7 +13,7 @@ public interface SecKillDAO {
      * @param killTime
      * @return
      */
-    int reduceNumber(@Param("seckillId") long seckillId,@Param("killTime ") Date killTime);
+    int reduceNumber(@Param("seckillId") long seckillId,@Param("killTime") Date killTime);
 
     /**
      * 根据Id查询秒杀对象

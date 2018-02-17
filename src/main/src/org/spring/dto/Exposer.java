@@ -81,4 +81,16 @@ public class Exposer {
     public void setEnd_time(long end_time) {
         this.end_time = end_time;
     }
+
+    @Override
+    public String toString() {
+        return "Exposer{" +
+                "exposed=" + exposed +
+                ", md5='" + md5 + '\'' +
+                ", seckillId=" + seckillId +
+                ", now=" + now +
+                ", start_time=" + start_time +
+                ", end_time=" + end_time +
+                '}';
+    }
 }

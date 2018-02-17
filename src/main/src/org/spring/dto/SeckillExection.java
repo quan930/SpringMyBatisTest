@@ -1,7 +1,7 @@
 package org.spring.dto;
 
 
-import org.spring.Enums.SecKillStatEnum;
+import org.spring.enums.SecKillStatEnum;
 import org.spring.entity.SuccessKilled;
 
 /**
@@ -63,5 +63,15 @@ public class SeckillExection {
 
     public void setSuccessKilled(SuccessKilled successKilled) {
         this.successKilled = successKilled;
+    }
+
+    @Override
+    public String toString() {
+        return "SeckillExection{" +
+                "seckillId=" + seckillId +
+                ", state=" + state +
+                ", stateInfo='" + stateInfo + '\'' +
+                ", successKilled=" + successKilled +
+                '}';
     }
 }

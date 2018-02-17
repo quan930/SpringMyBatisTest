@@ -10,14 +10,34 @@ import org.spring.entity.Seckill;
 import java.util.List;
 
 public interface SeckillService {
-
+    /**
+     * 查询所有列表
+     * @return
+     */
     List<Seckill> getSeckillList();
 
+    /**
+     * 通过id获取秒杀商品
+     * @param seckillId
+     * @return
+     */
     Seckill getById(long seckillId);
 
+    /**
+     * 获取秒杀链接
+     * @param seckillId
+     * @return
+     */
     Exposer exportSeckillUrl(long seckillId);
 
-    SeckillExection executeSeckill(long seckillid,long userPhone,String md5) throws SeckillException,RepeatKillException,SeckillCloseException;
-
+    /**
+     * 执行秒杀
+     * @param seckillid
+     * @param userPhone
+     * @param md5
+     * @return
+     */
+    SeckillExection executeSeckill(long seckillid,long userPhone,String md5)
+            throws SeckillException,RepeatKillException,SeckillCloseException;
 
 }

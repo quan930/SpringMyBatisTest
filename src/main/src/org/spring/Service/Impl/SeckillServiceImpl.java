@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.spring.DAO.SecKillDAO;
 import org.spring.DAO.SuccessKillDAO;
-import org.spring.Enums.SecKillStatEnum;
+import org.spring.enums.SecKillStatEnum;
 import org.spring.Exception.RepeatKillException;
 import org.spring.Exception.SeckillCloseException;
 import org.spring.Exception.SeckillException;
@@ -13,11 +13,15 @@ import org.spring.dto.Exposer;
 import org.spring.dto.SeckillExection;
 import org.spring.entity.Seckill;
 import org.spring.entity.SuccessKilled;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.DigestUtils;
 
 import java.util.Date;
 import java.util.List;
 
+@Service
 public class SeckillServiceImpl implements SeckillService {
 
     //md5盐值字符串
@@ -26,8 +30,10 @@ public class SeckillServiceImpl implements SeckillService {
     //日志
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
+    @Autowired
     private SecKillDAO secKillDAO;
 
+    @Autowired
     private SuccessKillDAO successKillDAO;
 
     public List<Seckill> getSeckillList() {
@@ -65,10 +71,11 @@ public class SeckillServiceImpl implements SeckillService {
         return md5;
     }
 
+    @Transactional
     public SeckillExection executeSeckill(long seckillid, long userPhone, String md5)
             throws SeckillException, RepeatKillException, SeckillCloseException {
 
-        if (md5 == null || md5.equals(getMD5(seckillid))){
+        if (md5 == null || !md5.equals(getMD5(seckillid))){
             throw  new SeckillException("md5 error");
         }
 
