@@ -112,10 +112,10 @@ public class SeckillServiceImpl implements SeckillService {
                 }
             }
 
-        } catch (RepeatKillException e1){
-            throw e1;
-        } catch (SeckillCloseException e2){
-            throw e2;
+        } catch (RepeatKillException e){
+            throw e;
+        } catch (SeckillCloseException e){
+            throw e;
         } catch (Exception e){
             logger.error(e.getMessage(),e);
             //所有编译期异常，转化为运行期异常
