@@ -64,4 +64,6 @@ public class SecKillDAOTest {
         int i = secKillDAO.reduceNumber(1000L, date);
         System.out.println(i);
     }
+
+
 }

@@ -8,6 +8,7 @@ import org.spring.dto.SeckillExection;
 import org.spring.entity.Seckill;
 
 import java.util.List;
+import java.util.Map;
 
 public interface SeckillService {
     /**
@@ -39,5 +40,16 @@ public interface SeckillService {
      */
     SeckillExection executeSeckill(long seckillid,long userPhone,String md5)
             throws SeckillException,RepeatKillException,SeckillCloseException;
+
+    /**
+     * 执行秒杀by procedure
+     * @param seckillid
+     * @param userPhone
+     * @param md5
+     * @return
+     */
+    SeckillExection executeSeckillProcedure(long seckillid,long userPhone,String md5);
+
+
 
 }

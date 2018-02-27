@@ -110,7 +110,7 @@ public class SeckillController {
         }
 
         try {
-            SeckillExection exection = seckillService.executeSeckill(seckillId, userPhone, md5);
+            SeckillExection exection = seckillService.executeSeckillProcedure(seckillId, userPhone, md5);
             return new SeckillResult<SeckillExection>(true,exection);
         } catch (SeckillCloseException e){
             SeckillExection exection = new SeckillExection(seckillId, SecKillStatEnum.REPEAT_KILL);

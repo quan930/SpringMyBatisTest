@@ -44,4 +44,10 @@
         <!-- 给出扫描Dao接口包 -->
         <property name="basePackage" value="org.spring.DAO"/>
     </bean>
+
+    <!-- Redis config -->
+    <bean id="redisDao" class="org.spring.DAO.cache.RedisDAO">
+        <constructor-arg index="0" value="localhost"/>
+        <constructor-arg index="1" value="6379"/>
+    </bean>
 </beans>

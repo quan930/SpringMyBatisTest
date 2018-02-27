@@ -5,6 +5,7 @@ import org.spring.entity.Seckill;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 public interface SecKillDAO {
     /**
@@ -29,4 +30,9 @@ public interface SecKillDAO {
      * @return
      */
     List<Seckill> queryAll(@Param("offset") int offset,@Param("limit") int limit);
+
+    /**
+     * @return
+     */
+    void killByProcedure(Map<String,Object> param);
 }

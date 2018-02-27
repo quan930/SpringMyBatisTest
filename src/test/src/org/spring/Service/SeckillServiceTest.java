@@ -74,8 +74,6 @@ public class SeckillServiceTest {
 
         }
 
-
-
     }
 
     @Test
@@ -91,8 +89,16 @@ public class SeckillServiceTest {
         }catch (SeckillCloseException e){
             logger.info(e.getMessage());
         }
+    }
 
-
+    @Test
+    public void test(){
+        Exposer exposer = seckillService.exportSeckillUrl(1000L);
+        if (exposer.isExposed()){
+            String md5 = exposer.getMd5();
+            SeckillExection exection = seckillService.executeSeckillProcedure(1000L, 138136819111L, md5);
+            logger.info(exection.getStateInfo());
+        }
 
     }
 }
